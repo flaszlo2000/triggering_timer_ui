@@ -17,6 +17,7 @@ export class WSRealtimeCard extends HTMLElement {
                     flex-grow: 4;
 
                     padding: 5px;
+                    overflow: auto;
                 }
 
                 .line-automation-name {
@@ -52,11 +53,31 @@ export class WSRealtimeCard extends HTMLElement {
                     display: flex;
                     flex-direction: column;
                     gap: 5px;
+
+                    max-height: 250px;
+                    overflow-y: scroll;
+
+                    direction: rtl;
+                }
+
+                #data .viewer-line {
+                    direction: ltr;
+                }
+
+                #data::-webkit-scrollbar {
+                    width: 8px;
+                    background: #0d141f;
+                    border-radius: 0 8px 8px 0;
+                }
+
+                #data::-webkit-scrollbar-thumb {
+                    background: #662249;
+                    border-radius: 0 8px 8px 0;
                 }
 
                 #no-timers {
                     display: flex;
-                    text-align: center;
+                    align-self: center;
                     padding: 5px;
                 }
                 </style>
