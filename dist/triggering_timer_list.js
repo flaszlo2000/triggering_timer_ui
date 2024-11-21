@@ -1,4 +1,4 @@
-class WSRealtimeCard extends HTMLElement {
+export class WSRealtimeCard extends HTMLElement {
     constructor() {
         super();
         
