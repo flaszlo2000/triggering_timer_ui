@@ -55,7 +55,7 @@ export class WSRealtimeCard extends HTMLElement {
                     gap: 5px;
 
                     max-height: 250px;
-                    overflow-y: scroll;
+                    overflow-y: auto;
 
                     direction: rtl;
                 }
@@ -67,12 +67,12 @@ export class WSRealtimeCard extends HTMLElement {
                 #data::-webkit-scrollbar {
                     width: 8px;
                     background: #0d141f;
-                    border-radius: 0 8px 8px 0;
+                    border-radius: 9px 0px 0px 9px;
                 }
 
                 #data::-webkit-scrollbar-thumb {
                     background: #662249;
-                    border-radius: 0 8px 8px 0;
+                    border-radius: 9px 0px 0px 9px;
                 }
 
                 #no-timers {
