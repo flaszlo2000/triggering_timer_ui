@@ -100,7 +100,7 @@ export class WSRealtimeCard extends HTMLElement {
         `;
 
         this._subscriptionId = null;
-        setInterval(this.updateTimers, 1000);
+        setInterval(this.updateTimers, 1000, [this]);
     }
 
     async subscribeToUpdates() {
@@ -130,8 +130,8 @@ export class WSRealtimeCard extends HTMLElement {
         this._hass = hass;
     }
 
-    updateTimers() {
-        const timer_divs = this.shadowRoot.querySelectorAll('.timer-div');
+    updateTimers(instance) {
+        const timer_divs = instance.shadowRoot.querySelectorAll('.timer-div');
     
         timer_divs.forEach(timer_div => {
             const targetTime = new Date(timer_div.getAttribute('data-time')).getTime();
