@@ -1,4 +1,6 @@
 {
     "name": "triggering_timer_ui",
-    "render_readme": true
+    "content_in_root": false,
+    "render_readme": true,
+    "filename": "triggering_timer_ui.js"
   }
