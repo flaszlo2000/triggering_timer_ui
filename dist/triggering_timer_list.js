@@ -1,7 +1,7 @@
 export class WSRealtimeCard extends HTMLElement {
     constructor() {
         super();
-        
+
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
             <style>
@@ -100,6 +100,7 @@ export class WSRealtimeCard extends HTMLElement {
         `;
 
         this._subscriptionId = null;
+        setInterval(updateTimers, 1000);
     }
 
     async subscribeToUpdates() {
@@ -115,7 +116,7 @@ export class WSRealtimeCard extends HTMLElement {
 
     connectedCallback() {
         this.subscribeToUpdates()
-            .then(() => {})
+            .then(() => { })
             .catch((error) => console.error('Failed to subscribe:', error));
     }
 
@@ -127,6 +128,28 @@ export class WSRealtimeCard extends HTMLElement {
 
     set hass(hass) {
         this._hass = hass;
+    }
+
+    updateTimers() {
+        const timer_divs = this.shadowRoot.querySelectorAll('.timer-div');
+    
+        timer_divs.forEach(timer_div => {
+            const targetTime = new Date(timer_div.getAttribute('data-time')).getTime();
+            const now = new Date().getTime();
+    
+            const timeDifference = targetTime - now;
+    
+            if (timeDifference <= 0) {
+                timer_div.innerHTML = "";
+            } else {
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + days * 24;
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    
+                timer_div.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+            }
+        });
     }
 
     handleEvent(event) {
@@ -143,7 +166,7 @@ export class WSRealtimeCard extends HTMLElement {
                         </div>
                         <div class="line">
                             <div class="line-automation-name">${values[0]}</div>
-                            <div>Ends: ${values[1]}</div>
+                            <div class="timer-div" data-time="${values[1]}"></div>
                         </div>
                         <div>
                             <button id="${uuid}" class="cancel-button">Cancel</button>
