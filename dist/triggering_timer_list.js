@@ -32,8 +32,19 @@ export class WSRealtimeCard extends HTMLElement {
                     width: 100%;
                     height: 100%;
                     padding: 6px;
-                    background-color: #662249;
                     border: 0px;
+                }
+
+                button:active {
+                    color: black;
+                }
+
+                .cancel-button {
+                    background-color: #662249;
+                }
+
+                .cancel-button:active {
+                    background-color: #A34054;
                 }
 
                 #data .viewer-line:first-child button {
@@ -42,11 +53,6 @@ export class WSRealtimeCard extends HTMLElement {
 
                 #data .viewer-line:last-child button {
                     border-bottom-right-radius: 9px;
-                }
-
-                button:active {
-                    background-color: #A34054;
-                    color: black;
                 }
                 
                 #data {
@@ -126,6 +132,11 @@ export class WSRealtimeCard extends HTMLElement {
                 .map(([uuid, values]) => `
                     <div class="viewer-line">
                         <div class="line">
+                            <div>
+                                <button>
+                                    <ha-icon icon="mdi:cog-outline"></ha-icon>	
+                                </button>
+                            </div>
                             <div class="line-automation-name">${values[0]}</div>
                             <div>Ends: ${values[1]}</div>
                         </div>
