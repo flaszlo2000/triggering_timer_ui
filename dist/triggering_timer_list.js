@@ -100,7 +100,7 @@ export class WSRealtimeCard extends HTMLElement {
         `;
 
         this._subscriptionId = null;
-        setInterval(updateTimers, 1000);
+        setInterval(this.updateTimers, 1000);
     }
 
     async subscribeToUpdates() {
