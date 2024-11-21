@@ -47,14 +47,19 @@ export class WSRealtimeCard extends HTMLElement {
                     background-color: #A34054;
                 }
 
-                #data .viewer-line:first-child button {
+                #data .viewer-line:first-child .cancel-button {
                     border-top-right-radius: 9px;
                 }
 
-                #data .viewer-line:last-child button {
+                #data .viewer-line:last-child .cancel-button {
                     border-bottom-right-radius: 9px;
                 }
                 
+                .config-button {
+                    background-color: transparent;
+                    color: #ED9E59;
+                }
+
                 #data {
                     display: flex;
                     flex-direction: column;
@@ -131,12 +136,12 @@ export class WSRealtimeCard extends HTMLElement {
             dataDiv.innerHTML = Object.entries(event)
                 .map(([uuid, values]) => `
                     <div class="viewer-line">
+                        <div>
+                            <button class="config-button">
+                                <ha-icon icon="mdi:cog-outline"></ha-icon>	
+                            </button>
+                        </div>
                         <div class="line">
-                            <div>
-                                <button>
-                                    <ha-icon icon="mdi:cog-outline"></ha-icon>	
-                                </button>
-                            </div>
                             <div class="line-automation-name">${values[0]}</div>
                             <div>Ends: ${values[1]}</div>
                         </div>
