@@ -1,4 +1,4 @@
-import { WSRealtimeCard } from "./triggering_timer_list";
+import { WSRealtimeCard } from "./triggering_timer_list.js";
 
 class TriggeringTimer extends HTMLElement {
   setConfig(config) {
