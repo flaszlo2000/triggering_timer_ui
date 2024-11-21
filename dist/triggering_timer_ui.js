@@ -273,5 +273,5 @@ class TriggeringTimer extends HTMLElement {
   }
 }
 
-customElements.define('triggering-timer-card', TriggeringTimer);
 customElements.define('triggering-timer-list-card', WSRealtimeCard);
+customElements.define('triggering-timer-card', TriggeringTimer);
