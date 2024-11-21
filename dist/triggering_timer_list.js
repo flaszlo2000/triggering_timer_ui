@@ -66,12 +66,12 @@ export class WSRealtimeCard extends HTMLElement {
 
                 #data::-webkit-scrollbar {
                     width: 8px;
-                    background: #1B1931;
+                    background: #0d141f;
                     border-radius: 10px 0px 0px 10px;
                 }
 
                 #data::-webkit-scrollbar-thumb {
-                    background: #0d141f;
+                    background: #1B1931;
                     border-radius: 10px 0px 0px 10px;
                 }
 
