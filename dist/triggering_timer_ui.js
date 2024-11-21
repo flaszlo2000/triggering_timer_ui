@@ -1,3 +1,5 @@
+import { WSRealtimeCard } from "./triggering_timer_list";
+
 class TriggeringTimer extends HTMLElement {
   setConfig(config) {
     if (!config) {
@@ -272,3 +274,4 @@ class TriggeringTimer extends HTMLElement {
 }
 
 customElements.define('triggering-timer-card', TriggeringTimer);
+customElements.define('triggering-timer-list-card', WSRealtimeCard);

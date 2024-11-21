@@ -132,5 +132,3 @@ class WSRealtimeCard extends HTMLElement {
 
     setConfig(config) { }
 }
-
-customElements.define('triggering-timer-list-card', WSRealtimeCard);
