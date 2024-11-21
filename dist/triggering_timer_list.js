@@ -60,7 +60,7 @@ export class WSRealtimeCard extends HTMLElement {
                     direction: rtl;
                 }
 
-                #data .viewer-line {
+                #data * {
                     direction: ltr;
                 }
 
@@ -71,7 +71,7 @@ export class WSRealtimeCard extends HTMLElement {
                 }
 
                 #data::-webkit-scrollbar-thumb {
-                    background: #662249;
+                    background: #1B1931;
                     border-radius: 9px 0px 0px 9px;
                 }
 
