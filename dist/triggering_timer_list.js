@@ -134,13 +134,14 @@ export class WSRealtimeCard extends HTMLElement {
         const timer_divs = instance.shadowRoot.querySelectorAll('.timer-div');
     
         timer_divs.forEach(timer_div => {
-            const targetTime = new Date(timer_div.getAttribute('data-time')).getTime();
+            const dateTime = timer_div.getAttribute('data-time');
+            const targetTime = new Date(dateTime).getTime();
             const now = new Date().getTime();
     
             const timeDifference = targetTime - now;
     
             if (timeDifference <= 0) {
-                timer_div.innerHTML = "";
+                timer_div.innerHTML = dateTime;
             } else {
                 const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + days * 24;
@@ -178,6 +179,8 @@ export class WSRealtimeCard extends HTMLElement {
             this.shadowRoot.querySelectorAll('.cancel-button').forEach(button => {
                 button.addEventListener("click", () => this.handleCancel(button.getAttribute("id")));
             });
+
+            this.updateTimers(this);
         } else {
             dataDiv.innerHTML = '<div id="no-timers">No timers found.</div>';
         }
